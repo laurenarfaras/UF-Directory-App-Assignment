@@ -27,10 +27,16 @@
                 <th>Code</th>
                 <th>Building Name</th>
                 <th></th>
+                <th></th>
               </tr>
               <tr ng-repeat="listing in listings">
                 <td> {{ listing.code }} </td>
                 <td> {{ listing.name }} </td>
+                <td>
+                  <button type="button" class="btn btn-info" ng-click="showDetails($index)">
+                    <i class="fa fa-info" aria-hidden="true"></i>
+                  </button>
+                </td>
                 <td>
                   <button type="button" class="btn btn-danger" ng-click="deleteListing($index)">
                     <i class="fa fa-times" aria-hidden="true"></i>
@@ -99,6 +105,14 @@
                    * consider how to use ng-click within the the table to implement this feature
 
              -->
+
+            <p>Code: {{ detailedInfo.code }} </p>
+            <p>Name: {{ detailedInfo.name }} </p>
+            <p>Coordinates: </p>
+            <p>Latitude: {{ detailedInfo.coordinates.latitude }} </p>
+            <p>Longitude: {{ detailedInfo.coordinates.longitude }} </p>
+            <p>Address: {{ detailedInfo.address }} </p>
+
           </div>
         </div>
       </div>

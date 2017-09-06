@@ -1,5 +1,22 @@
+var fs = require('fs'),
+    mongoose = require('mongoose'),
+    Schema = mongoose.Schema,
+    Listing = require('./ListingSchema.js'),
+    config = require('./config'),
+    listingData;
+
+/* Connect to your database */
+
+mongoose.connect(config.db.uri);
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  // we're connected!
+  console.log("connected!");
+});
+
+
 /* Fill out these functions using Mongoose queries*/
-var Listing = require('./ListingSchema.js');
 
 var findLibraryWest = function() {
   /*
@@ -24,7 +41,7 @@ var removeCable = function() {
     if (err) throw err;
     console.log('listing deleted');
    });
-   
+
 };
 var updatePhelpsLab = function() {
   /*
@@ -56,3 +73,5 @@ findLibraryWest();
 removeCable();
 updatePhelpsLab();
 retrieveAllListings();
+
+ mongoose.disconnect();

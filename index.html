@@ -26,10 +26,16 @@
               <tr>
                 <th>Code</th>
                 <th>Building Name</th>
+                <th></th>
               </tr>
               <tr ng-repeat="listing in listings">
                 <td> {{ listing.code }} </td>
                 <td> {{ listing.name }} </td>
+                <td>
+                  <button type="button" class="btn btn-danger" ng-click="deleteListing($index)">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                  </button>
+                </td>
               </tr>
               <!--
 

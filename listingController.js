@@ -23,11 +23,28 @@ angular.module('listings').controller('ListingsController', ['$scope', 'Listings
       $scope.longitude = "";
       $scope.address = "";
     };
-    $scope.deleteListing = function(index) {
+    $scope.deleteListing = function(listing) {
+      var index = -1;
+      var listArray = eval($scope.listings);
+      for (var i = 0; i < listArray.length; i++) {
+        if (listArray[i].name == listing.name) {
+          index = i;
+        }
+      }
+
       $scope.listings.splice(index, 1);
+      console.log(index);
+      console.log('delete listing');
     };
-    $scope.showDetails = function(index) {
-       $scope.detailedInfo = $scope.listings[index];
+    $scope.showDetails = function(listing) {
+      var index = -1;
+      var listArray = eval($scope.listings);
+      for (var i = 0; i < listArray.length; i++) {
+        if (listArray[i].name == listing.name) {
+          index = i;
+        }
+      }
+      $scope.detailedInfo = $scope.listings[index];
     };
   }
 ]);

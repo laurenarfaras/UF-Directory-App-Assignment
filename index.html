@@ -33,12 +33,12 @@
                 <td> {{ listing.code }} </td>
                 <td> {{ listing.name }} </td>
                 <td>
-                  <button type="button" class="btn btn-info" ng-click="showDetails($index)">
+                  <button type="button" class="btn btn-info" ng-click="showDetails(listing)">
                     <i class="fa fa-info" aria-hidden="true"></i>
                   </button>
                 </td>
                 <td>
-                  <button type="button" class="btn btn-danger" ng-click="deleteListing($index)">
+                  <button type="button" class="btn btn-danger" ng-click="deleteListing(listing)">
                     <i class="fa fa-times" aria-hidden="true"></i>
                   </button>
                 </td>

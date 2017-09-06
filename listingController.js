@@ -29,6 +29,7 @@ angular.module('listings').controller('ListingsController', ['$scope', 'Listings
       for (var i = 0; i < listArray.length; i++) {
         if (listArray[i].name == listing.name) {
           index = i;
+          break;
         }
       }
 
@@ -42,6 +43,7 @@ angular.module('listings').controller('ListingsController', ['$scope', 'Listings
       for (var i = 0; i < listArray.length; i++) {
         if (listArray[i].name == listing.name) {
           index = i;
+          break;
         }
       }
       $scope.detailedInfo = $scope.listings[index];

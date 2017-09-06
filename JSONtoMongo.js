@@ -7,8 +7,8 @@ var fs = require('fs'),
     mongoose = require('mongoose'),
     Schema = mongoose.Schema,
     Listing = require('./ListingSchema.js'),
-    config = require('./config');
-
+    config = require('./config'),
+    listingData;
 
 /* Connect to your database */
 
@@ -25,11 +25,19 @@ db.once('open', function() {
   and then save it to your Mongo database
  */
 
- fs.readFile('listings.json', 'utf8', function(err, data) {
+ var listings = require('./listings.json').entries;
 
+ listings.forEach(function(item) {
 
+   new Listing(item).save(function(err) {
+     if (err) throw err;
+     console.log('Listing added successfully!');
+   })
 
-});
+ });
+
+ mongoose.disconnect();
+
 
 /*
   Once you've written + run the script, check out your MongoLab database to ensure that

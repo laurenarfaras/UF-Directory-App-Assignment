@@ -67,6 +67,10 @@ table {
   justify-content: flex-end;
 }
 
+#newlist {
+  color: #81A4CD;
+}
+
 /*tr:nth-child(even) {*/
   /*orange*/
   /*background-color: #F3C178 !important;*/
@@ -85,7 +89,7 @@ table {
   overflow: auto;
 }
 
-#ufheading, #detailedinfo {
+#ufheading, #detailedinfo, #newlist {
   display: flex;
   justify-content: center;
   margin-bottom: 2em;

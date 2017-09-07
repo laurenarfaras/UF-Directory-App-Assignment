@@ -11,7 +11,6 @@ mongoose.connect(config.db.uri);
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
-  // we're connected!
   console.log("connected!");
 });
 
@@ -23,10 +22,10 @@ var findLibraryWest = function() {
     Find the document that contains data corresponding to Library West,
     then log it to the console.
    */
-
    Listing.find({name: 'Library West'}, function(err, listing) {
      if (err) throw err;
      console.log(listing);
+     console.log('find libary west: check');
    });
 
 };
@@ -43,35 +42,33 @@ var removeCable = function() {
    });
 
 };
+
 var updatePhelpsLab = function() {
   /*
     Phelps Laboratory's address is incorrect. Find the listing, update it, and then
     log the updated document to the console.
    */
-   Listing.findOneAndUpdate({name: 'Phelps Laboratory'}, function(err, listing) {
-     if (err) {
-       throw err;
-     } else {
-       console.log(listing);
-     }
-   });
+  Listing.findOneAndUpdate({ name: 'Phelps Laboratory' }, { address: 'Phelps Lab, Gainesville, FL 32603' }, function(err, listing) {
+    if (err) {
+      throw err;
+    }
+    console.log(listing);
+    console.log('updated phelps lab');
+  });
 };
+
 var retrieveAllListings = function() {
   /*
     Retrieve all listings in the database, and log them to the console.
    */
-   Listing.find({}, function(err, listings) {
-     if (err) {
-       throw err;
-     } else {
-       console.log(listings);
-     }
-   })
+  Listing.find({}, function(err, listings) {
+    if (err) throw err;
+    console.log(listings);
+  });
+
 };
 
 findLibraryWest();
 removeCable();
 updatePhelpsLab();
 retrieveAllListings();
-
- mongoose.disconnect();

@@ -4,14 +4,17 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="compass_PNG.png">
+    <title>UF Directory App</title>
   </head>
   <body ng-app="directoryApp">
     <div class="container">
-      <div class="row">
+      <div id="ufheading" class="row">
+        <img class="compass" src="./compass_PNG.png" alt="">
         <h1>UF Directory App</h1>
       </div>
       <div class="row" ng-controller="ListingsController">
-        <div class="col-md-6">
+        <div class="col-md-6 right-border">
           <div class="input-group" id="searchBar">
             <!--
 
@@ -57,65 +60,71 @@
               Write an HTML form that adds new listings to the directory
 
             -->
-            <form>
-              <div class="row">
-                <div class="form-group row">
-                  <label for="example-code" class="col-xs-2 col-sm-2 col-form-label">Code</label>
-                  <div class="col-xs-5 col-sm-5">
-                    <input class="form-control" type="text" placeholder="Code" id="example-code" ng-model="code">
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <label for="example-name" class="col-xs-2 col-sm-2 col-form-label">Name</label>
-                  <div class="col-xs-10 col-sm-10">
-                    <input class="form-control" type="text" placeholder="Name" id="example-name" ng-model="name">
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <label for="example-coordinates" class="col-xs-2 col-sm-2 col-form-label">Coordinates</label>
-                  <div class="col-xs-5 col-sm-5">
-                    <input class="form-control" type="number" placeholder="Longitude" id="example-long" ng-model="longitude">
-                  </div>
-                  <div class="col-xs-5 col-sm-5">
-                    <input class="form-control" type="number" placeholder="Latitude" id="example-lat" ng-model="latitude">
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <label for="example-address" class="col-xs-2 col-sm-2 col-form-label">Address</label>
-                  <div class="col-xs-10 col-sm-10">
-                    <input class="form-control" type="text" placeholder="Address" id="example-address" ng-model="address">
-                  </div>
-                </div>
-                <div class="col-xs-4 col-sm-4 col-xs-offset-8 col-sm-offset-8">
-                  <button type="submit" class="btn btn-primary" ng-click="addListing()">
-                    <i class="fa fa-plus" aria-hidden="true"></i>
-                    Add a new listing
-                  </button>
-                </div>
-              </div>
-            </form>
+
 
         </div>
-        <div class="col-md-6">
-          <div class="jumbotron">
-            <h2>Detailed Information</h2>
+        <div class="left-border col-md-6">
+          <div ng-hide="visible" class="jumbotron">
+            <h2 id="detailedinfo" >Detailed Information</h2>
             <!--
 
               Include a way to display detailed information about an individual listing:
                    * consider how to use ng-click within the the table to implement this feature
 
              -->
-
             <p>Code: {{ detailedInfo.code }} </p>
             <p>Name: {{ detailedInfo.name }} </p>
             <p>Coordinates: </p>
             <p>Latitude: {{ detailedInfo.coordinates.latitude }} </p>
             <p>Longitude: {{ detailedInfo.coordinates.longitude }} </p>
             <p>Address: {{ detailedInfo.address }} </p>
-
           </div>
         </div>
+
+        <div class="col-md-8 col-md-offset-2 form-section">
+          <form>
+            <div class="row">
+              <div class="form-group row">
+                <label for="example-code" class="col-xs-2 col-sm-2 col-form-label">Code</label>
+                <div class="col-xs-5 col-sm-5">
+                  <input class="form-control" type="text" placeholder="Code" id="example-code" ng-model="code">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="example-name" class="col-xs-2 col-sm-2 col-form-label">Name</label>
+                <div class="col-xs-10 col-sm-10">
+                  <input class="form-control" type="text" placeholder="Name" id="example-name" ng-model="name">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="example-coordinates" class="col-xs-2 col-sm-2 col-form-label">Coordinates</label>
+                <div class="col-xs-5 col-sm-5">
+                  <input class="form-control" type="number" placeholder="Longitude" id="example-long" ng-model="longitude">
+                </div>
+                <div class="col-xs-5 col-sm-5">
+                  <input class="form-control" type="number" placeholder="Latitude" id="example-lat" ng-model="latitude">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="example-address" class="col-xs-2 col-sm-2 col-form-label">Address</label>
+                <div class="col-xs-10 col-sm-10">
+                  <input class="form-control" type="text" placeholder="Address" id="example-address" ng-model="address">
+                </div>
+              </div>
+              <div class="newbut">
+                <button type="submit" class="btn btn-primary" ng-click="addListing()">
+                  <i class="fa fa-plus" aria-hidden="true"></i>
+                  Add a new listing
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+
       </div>
+
+
+
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>

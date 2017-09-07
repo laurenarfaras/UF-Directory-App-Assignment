@@ -1,3 +1,81 @@
+body {
+  background-color: white;
+}
+
+table {
+  /*background-color: aliceblue;*/
+  border-collapse: separate;
+  padding-right: 3em;
+}
+
+.input-group {
+  padding-right: 3em;
+}
+
+.btn-info {
+  background-color: rgba(91, 192, 222, 0.5);
+  width: 2.5em;
+}
+.btn-danger {
+  background-color: rgba(217, 83, 79, 0.5);
+  width: 2.5em;
+}
+.jumbotron {
+  background-color: white;
+  /*background-color: rgba(129, 164, 205, 0.6);
+  border: 3px solid;
+  border-color: #81A4CD;*/
+}
+.jumbotron h2 {
+  color: #81A4CD;
+}
+.jumbotron p {
+  display: flex;
+  justify-content: flex-start;
+  color: #81A4CD;
+  padding-left: 0em;
+}
+#ufheading h1 {
+  letter-spacing: 2px;
+  word-spacing: 5px;
+  text-shadow: 1px 1px #054A91;
+  color: #3E7CB1;
+}
+.compass {
+  margin-top: 1em;
+  height: 4em;
+  width: auto;
+}
+.form-section {
+  /*display: flex;
+  justify-content: center;*/
+  /*background-color: rgba(129, 164, 205, 0.6);*/
+  background-color: white;
+  border-top: 2px solid;
+  border-color: #81A4CD;
+  padding: 2em;
+}
+.right-border {
+  border-right: 2px solid #81A4CD;
+}
+.left-border {
+  margin-left: 0px;
+  /*border-left: 1px solid black;*/
+}
+.newbut {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/*tr:nth-child(even) {*/
+  /*orange*/
+  /*background-color: #F3C178 !important;*/
+/*}*/
+/*tr:nth-child(odd) {*/
+  /*blue*/
+  /*background-color: #81A4CD !important;*/
+/*}*/
+
 #searchBar {
   margin: 15px 10px;
 }
@@ -5,4 +83,80 @@
 .tableWrapper {
   max-height: 400px;
   overflow: auto;
+}
+
+#ufheading, #detailedinfo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2em;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
 }
